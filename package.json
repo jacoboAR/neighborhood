@@ -1,0 +1,33 @@
+{
+    "name": "neighborhood",
+    "version": "1.0.0",
+    "description": "Udacity project.",
+    "main": "webpack.config.js",
+    "scripts": {
+        "watch": "webpack --progress --watch",
+        "start": "webpack-dev-server --open --config webpack.dev.js",        
+        "build": "webpack --config webpack.prod.js"        
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/jacoboAR/neighborhood.git"
+    },
+    "author": "Jacobo Araujo <info@jacoboaraujo.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jacoboAR/neighborhood/issues"
+    },
+    "homepage": "https://github.com/jacoboAR/neighborhood#readme",
+    "dependencies": {
+        "bootstrap": "^4.0.0-beta",
+        "jquery": "^3.2.1",
+        "knockout": "^3.4.2"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.0",
+        "popper.js": "^1.12.5",
+        "webpack": "^3.6.0"
+    }
+}
