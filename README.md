@@ -1,6 +1,4 @@
-# NeighborhoodMap
-
-# Project Name: Neighborhood Map 
+# Neighborhood Map
 
 This project is an interest place's collection of my city, Pontevedra.
 The app provide a list and a search feature.  
