@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Neighborhood Map</title>
 </head>
+
 <body>
-    <div id="map"></div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>  
+    <div class="wrapper">
+        <nav id="sidebar">
+            <ul class="list-unstyled" data-bind="foreach: visible">
+                <li data-bind="text: name, click: $parent.activateMarker"></li>
+            </ul>
+        </nav>
+        <section id="content">
+            <nav class="navbar navbar-expand-xl navbar-light bg-light">
+                <a class="navbar-brand" href="#">Neighborhood Map</a>
+                <input id="search" class="form-control mr-sm-2" placeholder="Search by name" data-bind="textInput: userInput, event: {keyup: filterMarkers}">
+                <button id="sidebarCollapse" class="btn navbar-btn" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+            <div id="map"></div>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
     <script src="bundle.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCstpl6iTCVKbB4qqm3iQtZlsAjHqTAT4o&callback=initMap"
-    ></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCstpl6iTCVKbB4qqm3iQtZlsAjHqTAT4o&callback=initMap" onerror="errorHandling()"></script>
 </body>
+
 </html>
