@@ -54,15 +54,15 @@ var ViewModel = function () {
 
             let bestPhoto = data.hasOwnProperty('bestPhoto') ? data.bestPhoto : '';
             if (bestPhoto.hasOwnProperty('prefix')) {
-                p.photoPrefix(bestPhoto.prefix || '');
+                p.photoPre(bestPhoto.prefix || '');
             }
 
             if (bestPhoto.hasOwnProperty('suffix')) {
-                p.photoSuffix(bestPhoto.suffix || '');
+                p.photoSuf(bestPhoto.suffix || '');
             }
 
             let contentString = '<div id="InfoWindow"><h6>' + p.name() + '</h6>' + 
-            '<img src="' + p.photoPre()  + p.photoSuf() + '" alt="Image"></div>';
+            '<img src="' + p.photoPre() + '110x110'  + p.photoSuf() + '" alt="Image"></div>';
 
             google.maps.event.addListener(p.marker, 'click', function () {
                 infowindow.open(map, this);

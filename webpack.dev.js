@@ -15,6 +15,6 @@ module.exports = merge(common, {
             jQuery: 'jquery',
             'window.jQuery': 'jquery',
             Popper: ['popper.js', 'default']
-          })
+          }),
     ],
 });
