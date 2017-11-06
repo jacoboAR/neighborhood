@@ -16,6 +16,10 @@ window.initMap = function() {
     ko.applyBindings(new ViewModel());
 }
 
+window.errorHandling = function() {
+    alert("Google Maps has failed to load. Please check your internet connection and try again.");
+}
+
 // A constructor object to store information for each place
 var Place = function(data) {
     this.name = ko.observable(data.name);
@@ -94,32 +98,30 @@ var ViewModel = function () {
     //Input search funcionality
     that.visible = ko.observableArray();
     
-        that.placeList().forEach(function (place) {
-            that.visible.push(place);
-        });
-    
-        that.userInput = ko.observable('');
-    
-        that.filterMarkers = function () {
-            var searchInput = that.userInput().toLowerCase();
-            that.visible.removeAll();
-            that.placeList().forEach(function (place) {
-                place.marker.setVisible(false);
-                if (place.name().toLowerCase().indexOf(searchInput) !== -1) {
-                    that.visible.push(place);
-                }
-            });
-            that.visible().forEach(function (place) {
-                place.marker.setVisible(true);
-            });
-        };
-    
-    //Collapse the navbar
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
+    that.placeList().forEach(function (place) {
+        that.visible.push(place);
     });
-};
 
-function errorHandling() {
-	alert("Google Maps has failed to load. Please check your internet connection and try again.");
-}
+    that.userInput = ko.observable('');
+
+    that.filterMarkers = function () {
+        var searchInput = that.userInput().toLowerCase();
+        that.visible.removeAll();
+        that.placeList().forEach(function (place) {
+            place.marker.setVisible(false);
+            if (place.name().toLowerCase().indexOf(searchInput) !== -1) {
+                that.visible.push(place);
+            }
+        });
+        that.visible().forEach(function (place) {
+            place.marker.setVisible(true);
+        });
+    };
+    
+    //Collapse the navar
+    that.activeNavbar = ko.observable(false);
+    that.collapseNavbar = function() {
+        that.activeNavbar(!that.activeNavbar());
+    };
+
+};

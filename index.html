@@ -10,7 +10,7 @@
 
 <body>
     <div class="wrapper">
-        <nav id="sidebar">
+        <nav id="sidebar" data-bind="css: {'active': activeNavbar}">
             <ul class="list-unstyled" data-bind="foreach: visible">
                 <li data-bind="text: name, click: $parent.activateMarker"></li>
             </ul>
@@ -19,7 +19,7 @@
             <nav class="navbar navbar-expand-xl navbar-light bg-light">
                 <a class="navbar-brand" href="#">Neighborhood Map</a>
                 <input id="search" class="form-control mr-sm-2" placeholder="Search by name" data-bind="textInput: userInput, event: {keyup: filterMarkers}">
-                <button id="sidebarCollapse" class="btn navbar-btn" type="button">
+                <button id="sidebarCollapse" class="btn navbar-btn" type="button" data-bind="click: collapseNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </nav>
